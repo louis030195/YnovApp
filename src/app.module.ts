@@ -5,6 +5,8 @@ import {NewsModule} from './news/news.module';
 import {EventModule} from "./event/event.module";
 import {AppointmentModule} from "./appointment/appointment.module";
 import {StudentOfficeModule} from "./studentoffice/studentoffice.module";
+import {UserModule} from "./user/user.module";
+import {UserGroupModule} from "./usergroup/usergroup.module";
 
 @Module({
   imports: [
@@ -21,7 +23,9 @@ import {StudentOfficeModule} from "./studentoffice/studentoffice.module";
       NewsModule,
       EventModule,
       AppointmentModule,
-      StudentOfficeModule
+      StudentOfficeModule,
+      UserModule,
+      UserGroupModule
   ],
   controllers: [AppController],
   components: [],
