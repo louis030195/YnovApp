@@ -7,6 +7,7 @@ import {AppointmentModule} from "./appointment/appointment.module";
 import {StudentOfficeModule} from "./studentoffice/studentoffice.module";
 import {UserModule} from "./user/user.module";
 import {UserGroupModule} from "./usergroup/usergroup.module";
+import {AuthModule} from "./auth/auth.module";
 
 @Module({
   imports: [
@@ -25,7 +26,8 @@ import {UserGroupModule} from "./usergroup/usergroup.module";
       AppointmentModule,
       StudentOfficeModule,
       UserModule,
-      UserGroupModule
+      UserGroupModule,
+      AuthModule
   ],
   controllers: [AppController],
   components: [],
