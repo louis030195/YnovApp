@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import {MiddlewaresConsumer, Module, RequestMethod} from '@nestjs/common';
 import { AppController } from './app.controller';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {NewsModule} from './news/news.module';
@@ -7,7 +7,13 @@ import {AppointmentModule} from "./appointment/appointment.module";
 import {StudentOfficeModule} from "./studentoffice/studentoffice.module";
 import {UserModule} from "./user/user.module";
 import {UserGroupModule} from "./usergroup/usergroup.module";
-import {AuthModule} from "./auth/auth.module";
+import {AuthMiddleware} from "./middlewares/auth.middleware";
+import {AppointmentController} from "./appointment/appointment.controller";
+import {NewsController} from "./news/news.controller";
+import {StudentOfficeController} from "./studentoffice/studentoffice.controller";
+import {UserController} from "./user/user.controller";
+import {UserGroupController} from "./usergroup/usergroup.controller";
+import {EventController} from "./event/event.controller";
 
 @Module({
   imports: [
@@ -26,10 +32,19 @@ import {AuthModule} from "./auth/auth.module";
       AppointmentModule,
       StudentOfficeModule,
       UserModule,
-      UserGroupModule,
-      AuthModule
+      UserGroupModule
   ],
   controllers: [AppController],
   components: [],
 })
-export class ApplicationModule {}
+export class ApplicationModule {
+    configure(consumer: MiddlewaresConsumer): void {
+        consumer.apply(AuthMiddleware).forRoutes(AppointmentController);
+        consumer.apply(AuthMiddleware).forRoutes(EventController);
+        consumer.apply(AuthMiddleware).forRoutes(NewsController);
+        consumer.apply(AuthMiddleware).forRoutes(StudentOfficeController);
+        consumer.apply(AuthMiddleware).forRoutes(UserController);
+        consumer.apply(AuthMiddleware).forRoutes(UserGroupController);
+
+    }
+}

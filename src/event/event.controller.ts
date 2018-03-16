@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post, Put, UseGuards} from '@nestjs/common';
 import {EventService} from './event.service';
 import {EventOutDto} from './dto/event.out.dto';
 import {NewEventInDto} from './dto/new.event.in.dto';
