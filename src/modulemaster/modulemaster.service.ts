@@ -37,4 +37,8 @@ export class ModuleMasterService {
         return await this.moduleMasterRepository.save(updatedModuleMaster)
     }
 
+    async deleteById(id: number): Promise<void> {
+        return await this.moduleMasterRepository.deleteById(id);
+    }
+
 }

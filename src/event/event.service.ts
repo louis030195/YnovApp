@@ -37,4 +37,8 @@ export class EventService {
         return await this.eventRepository.save(updatedEvent)
     }
 
+    async deleteById(id: number): Promise<void> {
+        return await this.eventRepository.deleteById(id);
+    }
+
 }

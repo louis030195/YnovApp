@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import {PictureService} from './picture.service';
 import {PictureOutDto} from './dto/picture.out.dto';
 import {NewPictureInDto} from './dto/new.picture.in.dto';
@@ -27,5 +27,10 @@ export class PictureController {
     @Get(':id')
     async findOneById(@Param() params): Promise<PictureOutDto> {
         return await this.pictureService.findById(params.id);
+    }
+
+    @Delete(':id')
+    async deleteById(@Param() params): Promise<void> {
+        return await this.pictureService.deleteById(params.id);
     }
 }

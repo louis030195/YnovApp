@@ -37,4 +37,8 @@ export class StudentOfficeService {
         return await this.studentOfficeRepository.save(updatedStudentOffice)
     }
 
+    async deleteById(id: number): Promise<void> {
+        return await this.studentOfficeRepository.deleteById(id);
+    }
+
 }

@@ -1,3 +1,5 @@
+import {Picture} from "../../picture/entities/picture.entity";
+
 export class NewEventInDto {
     readonly title: string;
     readonly description: string;
@@ -6,5 +8,5 @@ export class NewEventInDto {
     readonly time: string;
     readonly place: string;
     readonly eventBrite: string;
-    readonly picturesId: number;
+    readonly picturesId: Picture[];
 }

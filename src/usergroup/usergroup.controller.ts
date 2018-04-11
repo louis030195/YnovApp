@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import {UserGroupService} from './usergroup.service';
 import {UserGroupOutDto} from './dto/usergroup.out.dto';
 import {NewUserGroupInDto} from './dto/new.usergroup.in.dto';
@@ -27,5 +27,10 @@ export class UserGroupController {
     @Get(':id')
     async findOneById(@Param() params): Promise<UserGroupOutDto> {
         return await this.userGroupService.findById(params.id);
+    }
+
+    @Delete(':id')
+    async deleteById(@Param() params): Promise<void> {
+        return await this.userGroupService.deleteById(params.id);
     }
 }

@@ -37,4 +37,8 @@ export class UserService {
         return await this.userRepository.save(updatedUser)
     }
 
+    async deleteById(id: number): Promise<void> {
+        return await this.userRepository.deleteById(id);
+    }
+
 }

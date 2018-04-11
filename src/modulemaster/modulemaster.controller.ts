@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import {ModuleMasterService} from './modulemaster.service';
 import {ModuleMasterOutDto} from './dto/modulemaster.out.dto';
 import {NewModuleMasterInDto} from './dto/new.modulemaster.in.dto';
@@ -27,5 +27,10 @@ export class ModuleMasterController {
     @Get(':id')
     async findOneById(@Param() params): Promise<ModuleMasterOutDto> {
         return await this.moduleMasterService.findById(params.id);
+    }
+
+    @Delete(':id')
+    async deleteById(@Param() params): Promise<void> {
+        return await this.moduleMasterService.deleteById(params.id);
     }
 }

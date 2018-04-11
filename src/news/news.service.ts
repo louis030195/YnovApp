@@ -37,4 +37,8 @@ export class NewsService {
         return await this.newsRepository.save(updatedNews)
     }
 
+    async deleteById(id: number): Promise<void> {
+        return await this.newsRepository.deleteById(id);
+    }
+
 }

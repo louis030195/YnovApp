@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import {StudentOfficeService} from './studentoffice.service';
 import {StudentOfficeOutDto} from './dto/studentoffice.out.dto';
 import {NewStudentOfficeInDto} from './dto/new.studentoffice.in.dto';
@@ -27,5 +27,10 @@ export class StudentOfficeController {
     @Get(':id')
     async findOneById(@Param() params): Promise<StudentOfficeOutDto> {
         return await this.studentOfficeService.findById(params.id);
+    }
+
+    @Delete(':id')
+    async deleteById(@Param() params): Promise<void> {
+        return await this.studentOfficeService.deleteById(params.id);
     }
 }

@@ -1,3 +1,5 @@
+import {Picture} from "../../picture/entities/picture.entity";
+
 export class EventOutDto {
     readonly eventId: number;
     readonly title: string;
@@ -7,5 +9,5 @@ export class EventOutDto {
     readonly time: string;
     readonly place: string;
     readonly eventBrite: string;
-    readonly picturesId: number;
+    readonly picturesId: Picture[];
 }

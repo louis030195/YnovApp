@@ -38,4 +38,8 @@ export class UserGroupService {
         return await this.userRepository.save(updatedUserGroup)
     }
 
+    async deleteById(id: number): Promise<void> {
+        return await this.userRepository.deleteById(id);
+    }
+
 }

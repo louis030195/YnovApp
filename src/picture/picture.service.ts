@@ -37,4 +37,8 @@ export class PictureService {
         return await this.pictureRepository.save(updatedPicture)
     }
 
+    async deleteById(id: number): Promise<void> {
+        return await this.pictureRepository.deleteById(id);
+    }
+
 }

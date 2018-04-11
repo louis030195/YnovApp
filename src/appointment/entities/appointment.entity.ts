@@ -15,7 +15,7 @@ export class Appointment {
     @Column({ type: 'date', nullable: true})
     appDate: Date;
 
-    @Column({ type: 'date', nullable: true})
+    @Column({ type: 'varchar',length: 20, nullable: true})
     place: string;
 
     @Column({ type: 'varchar', length: 20, nullable: true})

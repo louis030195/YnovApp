@@ -28,4 +28,8 @@ export class NewsController {
     async findOneById(@Param() params): Promise<NewsOutDto> {
         return await this.newsService.findById(params.id);
     }
+
+    async deleteById(id: number): Promise<void> {
+        return await this.newsService.deleteById(id);
+    }
 }
