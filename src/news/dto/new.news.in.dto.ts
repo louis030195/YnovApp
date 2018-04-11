@@ -2,6 +2,7 @@ export class NewNewsInDto {
     readonly category: string;
     readonly title: string;
     readonly description: string;
-    readonly author: string;
+    readonly authorId: number;
     readonly creationDate: Date;
+    readonly picturesId: number;
 }

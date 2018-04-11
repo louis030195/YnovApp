@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post, Put, Delete} from '@nestjs/common';
 import {AppointmentService} from './appointment.service';
 import {AppointmentOutDto} from './dto/appointment.out.dto';
 import {NewAppointmentInDto} from './dto/new.appointment.in.dto';
@@ -27,5 +27,10 @@ export class AppointmentController {
     @Get(':id')
     async findOneById(@Param() params): Promise<AppointmentOutDto> {
         return await this.appointmentService.findById(params.id);
+    }
+
+    @Delete(':id')
+    async deleteById(@Param() params): Promise<void> {
+        return await this.appointmentService.deleteById(params.id);
     }
 }

@@ -37,4 +37,8 @@ export class AppointmentService {
         return await this.appointmentRepository.save(updatedAppointment)
     }
 
+    async deleteById(id: number): Promise<void> {
+        return await this.appointmentRepository.deleteById(id);
+    }
+
 }

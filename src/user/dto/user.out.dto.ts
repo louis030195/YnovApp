@@ -6,4 +6,6 @@ export class UserOutDto {
     readonly lastname: string;
     readonly level: string;
     readonly formation: string;
+    readonly verifyUseCondition: boolean;
+    readonly ugId: number;
 }

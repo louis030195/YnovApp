@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {UserGroup} from "../../usergroup/entities/usergroup.entity";
 
 @Entity()
 export class User {
@@ -22,4 +23,10 @@ export class User {
 
     @Column({ type: 'varchar', length: 20, nullable: true})
     formation: string;
+
+    @Column({ type: 'tinyint', nullable: true})
+    verifyUseCondition: boolean;
+
+    @ManyToOne(type => UserGroup, userGroup => userGroup.usersId)
+    ugId: number;
 }

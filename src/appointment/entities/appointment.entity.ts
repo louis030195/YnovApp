@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {User} from "../../user/entities/user.entity";
 
 @Entity()
 export class Appointment {
@@ -23,10 +24,12 @@ export class Appointment {
     @Column({ type: 'varchar', length: 1000, nullable: true})
     message: string;
 
-    @Column({ type: 'int', nullable: true})
+    @OneToOne(type => User)
+    @JoinColumn()
     senderId: number;
 
-    @Column({ type: 'int', nullable: true})
+    @OneToOne(type => User)
+    @JoinColumn()
     receiverId: number;
 
     @Column({ type: 'tinyint', nullable: true})

@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn, OneToOne} from 'typeorm';
+import {Picture} from "../../picture/entities/picture.entity";
+import {User} from "../../user/entities/user.entity";
 
 @Entity()
 export class Event {
@@ -11,8 +13,8 @@ export class Event {
     @Column({ type: 'varchar', length: 1000, nullable: true})
     description: string;
 
-    @Column({ type: 'varchar', length: 20, nullable: true})
-    animator: string;
+    @OneToOne(type => User)
+    animatorId: number;
 
     @Column({ type: 'date', nullable: true})
     eventDate: Date;
@@ -25,4 +27,8 @@ export class Event {
 
     @Column({ type: 'varchar', length: 50, nullable: true})
     eventBrite: string;
+
+    @OneToMany(type => Picture, picture => picture.picId)
+    picturesId: Picture[];
+
 }

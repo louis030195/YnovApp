@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {User} from "../../user/entities/user.entity";
+import {Picture} from "../../picture/entities/picture.entity";
 
 @Entity()
 export class News {
@@ -14,9 +16,12 @@ export class News {
     @Column({ type: 'varchar', length: 1000, nullable: true})
     description: string;
 
-    @Column({ type: 'varchar', length: 20, nullable: true})
-    author: string;
+    @OneToOne(type => User)
+    authorId: number;
 
     @Column({ type: 'date', default: null})
     creationDate: Date;
+
+    @OneToMany(type => Picture, picture => picture.picId)
+    picturesId: Picture[];
 }
